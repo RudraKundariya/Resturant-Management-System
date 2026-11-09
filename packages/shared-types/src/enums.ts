@@ -1,0 +1,97 @@
+export enum UserRole {
+  OWNER = 'OWNER',
+  MANAGER = 'MANAGER',
+  WAITER = 'WAITER',
+  KITCHEN = 'KITCHEN',
+  CLEANER = 'CLEANER',
+}
+
+export enum TableStatus {
+  AVAILABLE = 'AVAILABLE',
+  RESERVED = 'RESERVED',
+  OCCUPIED = 'OCCUPIED',
+  PAYMENT_PENDING = 'PAYMENT_PENDING',
+  NEEDS_CLEANING = 'NEEDS_CLEANING',
+  CLEANING_IN_PROGRESS = 'CLEANING_IN_PROGRESS',
+  OUT_OF_SERVICE = 'OUT_OF_SERVICE',
+}
+
+export enum SessionStatus {
+  ACTIVE = 'ACTIVE',
+  CLOSED = 'CLOSED',
+  EXPIRED = 'EXPIRED',
+}
+
+export enum OrderStatus {
+  PLACED = 'PLACED',
+  CONFIRMED = 'CONFIRMED',
+  IN_PROGRESS = 'IN_PROGRESS',
+  READY = 'READY',
+  SERVED = 'SERVED',
+  CANCELLED = 'CANCELLED',
+}
+
+export enum ItemStatus {
+  PENDING = 'PENDING',
+  ACCEPTED = 'ACCEPTED',
+  PREPARING = 'PREPARING',
+  READY = 'READY',
+  SERVED = 'SERVED',
+  CANCELLED = 'CANCELLED',
+}
+
+export enum BillStatus {
+  OPEN = 'OPEN',
+  PAID = 'PAID',
+  PARTIALLY_PAID = 'PARTIALLY_PAID',
+  VOID = 'VOID',
+}
+
+export enum PaymentMethod {
+  UPI = 'UPI',
+  CARD = 'CARD',
+  WALLET = 'WALLET',
+  CASH = 'CASH',
+}
+
+export enum PaymentStatus {
+  CREATED = 'CREATED',
+  PENDING = 'PENDING',
+  SUCCESS = 'SUCCESS',
+  FAILED = 'FAILED',
+  REFUNDED = 'REFUNDED',
+  PARTIALLY_REFUNDED = 'PARTIALLY_REFUNDED',
+}
+
+export enum AlertType {
+  CALL_WAITER = 'CALL_WAITER',
+  REQUEST_BILL = 'REQUEST_BILL',
+  ORDER_DELAYED = 'ORDER_DELAYED',
+  PAYMENT_FAILED = 'PAYMENT_FAILED',
+  LONG_WAIT = 'LONG_WAIT',
+  UNATTENDED = 'UNATTENDED',
+  LONG_STAY = 'LONG_STAY',
+  HELP = 'HELP',
+  AI_SUGGESTION = 'AI_SUGGESTION',
+}
+
+export enum AlertStatus {
+  OPEN = 'OPEN',
+  ACKNOWLEDGED = 'ACKNOWLEDGED',
+  RESOLVED = 'RESOLVED',
+}
+
+export enum TaskStatus {
+  PENDING = 'PENDING',
+  IN_PROGRESS = 'IN_PROGRESS',
+  DONE = 'DONE',
+  CANCELLED = 'CANCELLED',
+}
+
+export enum ActorType {
+  CUSTOMER = 'CUSTOMER',
+  STAFF = 'STAFF',
+  SYSTEM = 'SYSTEM',
+  AI = 'AI',
+}
+

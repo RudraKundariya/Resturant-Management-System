@@ -1,0 +1,14 @@
+packages:
+  - 'apps/*'
+  - 'packages/*'
+
+verifyDepsBeforeRun: false
+
+onlyBuiltDependencies:
+  - '@nestjs/core'
+  - '@prisma/client'
+  - '@prisma/engines'
+  - 'prisma'
+  - 'sharp'
+  - 'msgpackr-extract'
+  - 'bcryptjs'
