@@ -34,3 +34,4 @@ describe('HealthController', () => {
     expect(result.database).toBe('ok');
   });
 });
+
