@@ -46,6 +46,11 @@ export default function GuestOrderingPage() {
   const [billRequested, setBillRequested] = useState(false);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Fallback demo data if backend is offline, or fetch from backend
   const fallbackMenu: Category[] = [
@@ -193,6 +198,15 @@ export default function GuestOrderingPage() {
       return true;
     }),
   })).filter((cat) => cat.items.length > 0);
+
+  if (!mounted) {
+    return (
+      <div className="flex flex-col min-h-screen items-center justify-center bg-slate-50 text-slate-500 text-xs">
+        <div className="w-8 h-8 border-2 border-emerald-600 border-t-transparent rounded-full animate-spin mb-2"></div>
+        <span>Loading Digital Menu...</span>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col min-h-screen text-slate-900 bg-slate-50">
