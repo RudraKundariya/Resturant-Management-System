@@ -1,0 +1,83 @@
+
+<helmet>
+<style>/* cyrillic-ext */
+/* cyrillic */
+/* greek-ext */
+/* greek */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+/* cyrillic-ext */
+/* cyrillic */
+/* greek-ext */
+/* greek */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+/* cyrillic-ext */
+/* cyrillic */
+/* greek-ext */
+/* greek */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+</style>
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;display:flex;flex-direction:column;background:#F4F6F5;font-family:Inter,system-ui,sans-serif;color:#14211F;overflow:hidden">
+
+<header style="background:#145049;color:#FFFFFF;padding:20px 20px 16px;display:flex;flex-direction:column;gap:4px;border-bottom:4px solid #EA580C">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<span style="font-family:'Space Grotesk',Inter,sans-serif;font-weight:600;font-size:22px">Tabula</span>
+<span style="font-size:13px;font-weight:600;background:#FFFFFF;color:#145049;padding:4px 12px;border-radius:999px">Table 7</span>
+</div>
+<span style="font-size:13px;color:#CDEBE5">3 guests are adding to the same order</span>
+</header>
+
+<div role="tablist" aria-label="Categories" style="display:flex;gap:8px;padding:12px 16px;overflow-x:auto;flex:0 0 auto">
+<sc-for list="{{cats}}" as="c" hint-placeholder-count="5">
+<button role="tab" aria-selected="{{c.selected}}" sc-camel-on-click="{{c.pick}}" style="{{c.style}}">{{c.label}}</button>
+</sc-for>
+</div>
+
+<section aria-label="Dishes" style="flex:1 1 auto;overflow-y:auto;padding:0 16px 12px;display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{dishes}}" as="d" hint-placeholder-count="4">
+<div style="background:#FFFFFF;border:1px solid #DDE5E2;border-radius:14px;padding:10px;display:flex;gap:12px;align-items:stretch">
+<img src="{{d.img}}" alt="{{d.name}}" style="width:96px;height:96px;flex:0 0 96px;border-radius:10px;object-fit:cover;align-self:center">
+<div style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:8px">
+<div style="display:flex;flex-direction:column;gap:3px">
+<span style="display:flex;align-items:center;gap:6px;font-size:12px;color:#55655F"><span style="{{d.mark}}"></span>{{d.diet}}</span>
+<span style="font-size:15px;font-weight:600">{{d.name}}</span>
+<span style="font-size:13px;color:#55655F">{{d.desc}}</span>
+</div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:6px">
+<span style="font-size:14px;font-weight:600">{{d.priceLabel}}</span>
+<div style="display:flex;align-items:center;gap:6px">
+<sc-if value="{{d.inCart}}" hint-placeholder-val="{{ false }}">
+<button aria-label="Remove one" sc-camel-on-click="{{d.dec}}" style="width:44px;height:44px;border-radius:12px;border:1px solid #145049;background:#FFFFFF;color:#145049;font:600 18px Inter,sans-serif;cursor:pointer">−</button>
+<span style="min-width:16px;text-align:center;font-weight:600">{{d.qty}}</span>
+</sc-if>
+<button aria-label="Add one" sc-camel-on-click="{{d.inc}}" style="width:44px;height:44px;border-radius:12px;border:0;background:#145049;color:#FFFFFF;font:600 18px Inter,sans-serif;cursor:pointer">+</button>
+</div>
+</div>
+</div>
+</div>
+</sc-for>
+</section>
+
+<div style="padding:12px 16px 20px;background:#FFFFFF;border-top:1px solid #DDE5E2">
+<a href="GuestOrder.dc.html" style="{{cartStyle}}">
+<span>{{cartLabel}}</span>
+<span>{{cartTotal}}</span>
+</a>
+</div>
+</div>

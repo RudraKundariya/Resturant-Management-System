@@ -1,0 +1,120 @@
+
+<helmet>
+<style>/* cyrillic-ext */
+/* cyrillic */
+/* greek-ext */
+/* greek */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+/* cyrillic-ext */
+/* cyrillic */
+/* greek-ext */
+/* greek */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+/* cyrillic-ext */
+/* cyrillic */
+/* greek-ext */
+/* greek */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+</style>
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}
+</style>
+</helmet>
+<div style="min-height:900px;background:#F4F6F5;font-family:Inter,system-ui,sans-serif;color:#14211F;display:flex;flex-direction:column">
+
+<header style="background:#145049;color:#FFFFFF;display:flex;flex-wrap:wrap;align-items:center;gap:16px 32px;padding:12px 32px;border-bottom:4px solid #EA580C">
+<div style="font-family:'Space Grotesk',Inter,sans-serif;font-weight:600;font-size:20px">Tabula</div>
+<nav aria-label="Main" style="display:flex;flex-wrap:wrap;gap:4px;flex:1 1 auto">
+<sc-for list="{{nav}}" as="n" hint-placeholder-count="6">
+<a href="{{n.href}}" style="{{n.style}}">{{n.label}}</a>
+</sc-for>
+</nav>
+</header>
+
+<main style="padding:24px 32px;display:flex;flex-direction:column;gap:20px;box-sizing:border-box">
+<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+<div>
+<h1 style="margin:0;font-family:'Space Grotesk',Inter,sans-serif;font-weight:600;font-size:28px">Reports</h1>
+<p style="margin:4px 0 0;font-size:13px;color:#55655F">Sample data. Targets are the first-3-month KPIs from the project overview.</p>
+</div>
+<div role="group" aria-label="Date range" style="display:flex;gap:8px">
+<button style="min-height:44px;padding:0 16px;border-radius:999px;border:1px solid #145049;background:#145049;color:#FFFFFF;font:600 13px Inter,sans-serif">Today</button>
+<button style="min-height:44px;padding:0 16px;border-radius:999px;border:1px solid #BFD0CA;background:#FFFFFF;color:#14211F;font:600 13px Inter,sans-serif">7 days</button>
+<button style="min-height:44px;padding:0 16px;border-radius:999px;border:1px solid #BFD0CA;background:#FFFFFF;color:#14211F;font:600 13px Inter,sans-serif">30 days</button>
+</div>
+</div>
+
+<section aria-label="KPIs" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
+<sc-for list="{{kpis}}" as="k" hint-placeholder-count="6">
+<div style="background:#FFFFFF;border:1px solid #DDE5E2;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:8px">
+<span style="font-size:13px;font-weight:500;color:#55655F">{{k.label}}</span>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+<span style="font-family:'Space Grotesk',Inter,sans-serif;font-size:30px;font-weight:600">{{k.value}}</span>
+<span style="{{k.chip}}">{{k.status}}</span>
+</div>
+<span style="font-size:13px;color:#55655F">Target: {{k.target}}</span>
+</div>
+</sc-for>
+</section>
+
+<div style="display:flex;flex-wrap:wrap;gap:16px;align-items:stretch">
+<section style="flex:2 1 460px;min-width:0;background:#FFFFFF;border:1px solid #DDE5E2;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline">
+<h2 style="margin:0;font-size:16px;font-weight:600">Guests by hour (peak hours)</h2>
+<span style="font-size:13px;color:#55655F">Busiest: 8 pm</span>
+</div>
+<div role="img" aria-label="Bar chart of guests by hour, peaking at 8 pm" style="display:flex;align-items:flex-end;gap:10px;height:200px;border-bottom:1px solid #DDE5E2">
+<sc-for list="{{bars}}" as="b" hint-placeholder-count="12">
+<div style="flex:1 1 0;min-width:0;display:flex;flex-direction:column;justify-content:flex-end;height:100%">
+<div style="height:{{b.h}};background:{{b.fill}};border-radius:6px 6px 0 0"></div>
+</div>
+</sc-for>
+</div>
+<div style="display:flex;gap:10px" aria-hidden="true">
+<sc-for list="{{bars}}" as="b" hint-placeholder-count="12">
+<span style="flex:1 1 0;min-width:0;text-align:center;font-size:12px;color:#55655F">{{b.label}}</span>
+</sc-for>
+</div>
+</section>
+
+<section style="flex:1 1 340px;min-width:0;background:#FFFFFF;border:1px solid #DDE5E2;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:12px">
+<h2 style="margin:0;font-size:16px;font-weight:600">Best sellers</h2>
+<sc-for list="{{sellers}}" as="s" hint-placeholder-count="5">
+<div style="display:flex;flex-direction:column;gap:6px">
+<div style="display:flex;justify-content:space-between;font-size:14px"><span style="font-weight:500">{{s.name}}</span><span style="color:#55655F">{{s.n}} sold</span></div>
+<div style="height:8px;border-radius:4px;background:#E6EDEA"><div style="height:8px;border-radius:4px;background:#145049;width:{{s.w}}"></div></div>
+</div>
+</sc-for>
+</section>
+</div>
+
+<section style="background:#FFFFFF;border:1px solid #DDE5E2;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+<h2 style="margin:0;font-size:16px;font-weight:600">Average dwell time by table</h2>
+<span style="font-size:13px;color:#55655F">Orange bars are over 1 hour</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px 32px">
+<sc-for list="{{dwell}}" as="d" hint-placeholder-count="6">
+<div style="display:flex;align-items:center;gap:12px;font-size:14px">
+<span style="flex:0 0 64px;font-weight:600">{{d.name}}</span>
+<div style="flex:1 1 auto;height:10px;border-radius:5px;background:#E6EDEA"><div style="height:10px;border-radius:5px;background:{{d.fill}};width:{{d.w}}"></div></div>
+<span style="flex:0 0 56px;text-align:right;color:#33423D">{{d.t}}</span>
+</div>
+</sc-for>
+</div>
+</section>
+</main>
+</div>

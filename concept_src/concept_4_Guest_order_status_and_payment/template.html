@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>Guest order status and payment</title>
+<script src="5f7cec1d-e7e9-4fd7-872a-1e28aa9a768b"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("433c3cea-a176-4ebc-8b49-fbdb9b208fd3") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("8cc66806-d777-452d-91d4-b907058cc277") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("5125b25a-0fdc-46a4-be67-5403551f5d47") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("05c55f3c-08c8-480b-904e-e077488e79a5") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("27fb8746-f166-4f7a-9bed-adc71f908047") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("95bd553c-17e1-47fa-a788-1d62baa82b9b") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("6cba1487-819e-4e0d-9cea-d1aba4da22ab") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("433c3cea-a176-4ebc-8b49-fbdb9b208fd3") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("8cc66806-d777-452d-91d4-b907058cc277") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("5125b25a-0fdc-46a4-be67-5403551f5d47") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("05c55f3c-08c8-480b-904e-e077488e79a5") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("27fb8746-f166-4f7a-9bed-adc71f908047") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("95bd553c-17e1-47fa-a788-1d62baa82b9b") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("6cba1487-819e-4e0d-9cea-d1aba4da22ab") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("433c3cea-a176-4ebc-8b49-fbdb9b208fd3") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("8cc66806-d777-452d-91d4-b907058cc277") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("5125b25a-0fdc-46a4-be67-5403551f5d47") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("05c55f3c-08c8-480b-904e-e077488e79a5") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("27fb8746-f166-4f7a-9bed-adc71f908047") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("95bd553c-17e1-47fa-a788-1d62baa82b9b") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("6cba1487-819e-4e0d-9cea-d1aba4da22ab") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("1fd3851f-7b6b-4f80-a7c3-4d107e31a235") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("5711fbdd-d8a8-4a18-8906-6d0f3309cb5e") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("9b82aea9-31b8-41d6-a6c9-51fd824dc563") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("1fd3851f-7b6b-4f80-a7c3-4d107e31a235") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("5711fbdd-d8a8-4a18-8906-6d0f3309cb5e") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("9b82aea9-31b8-41d6-a6c9-51fd824dc563") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;display:flex;flex-direction:column;background:#F4F6F5;font-family:Inter,system-ui,sans-serif;color:#14211F;overflow:hidden">
+
+<header style="background:#145049;color:#FFFFFF;padding:16px 20px;display:flex;align-items:center;gap:12px;border-bottom:4px solid #EA580C">
+<a href="GuestMenu.dc.html" aria-label="Back to menu" style="width:44px;height:44px;border-radius:12px;border:1px solid #4E8A80;display:flex;align-items:center;justify-content:center">
+<svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>
+</a>
+<div style="display:flex;flex-direction:column">
+<span style="font-family:'Space Grotesk',Inter,sans-serif;font-weight:600;font-size:20px">Your order</span>
+<span style="font-size:13px;color:#CDEBE5">Table 7 · 3 guests</span>
+</div>
+</header>
+
+<div style="flex:1 1 auto;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:16px">
+
+<section aria-label="Items" style="background:#FFFFFF;border:1px solid #DDE5E2;border-radius:14px;padding:4px 16px">
+<sc-for list="{{items}}" as="i" hint-placeholder-count="4">
+<div style="padding:12px 0;border-bottom:1px solid #E6EDEA;display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+<span style="font-size:14px;font-weight:600">{{i.qty}}× {{i.name}}</span>
+<span style="{{i.chip}}">{{i.status}}</span>
+</div>
+<div style="display:flex;gap:4px" aria-hidden="true">
+<sc-for list="{{i.steps}}" as="s" hint-placeholder-count="4">
+<div style="{{s}}"></div>
+</sc-for>
+</div>
+</div>
+</sc-for>
+<p style="margin:0;padding:10px 0 8px;font-size:12px;color:#55655F">Accepted, then Preparing, Ready, Served.</p>
+</section>
+
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
+<button sc-camel-on-click="{{toggleWaiter}}" style="{{waiterStyle}}">{{waiterLabel}}</button>
+<button sc-camel-on-click="{{toggleBill}}" style="{{billStyle}}">{{billLabel}}</button>
+</div>
+
+<section aria-label="Bill" style="background:#FFFFFF;border:1px solid #DDE5E2;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;font-size:14px">
+<div style="display:flex;justify-content:space-between"><span style="color:#55655F">Subtotal</span><span>{{subtotal}}</span></div>
+<div style="display:flex;justify-content:space-between"><span style="color:#55655F">GST (5%)</span><span>{{tax}}</span></div>
+<div style="display:flex;justify-content:space-between;font-size:18px;font-weight:600;padding-top:6px;border-top:1px solid #E6EDEA"><span>Total</span><span>{{total}}</span></div>
+</section>
+
+<section aria-label="Payment method" style="display:flex;flex-direction:column;gap:8px">
+<h2 style="margin:0;font-size:14px;font-weight:600">Pay with</h2>
+<div role="radiogroup" aria-label="Payment method" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+<sc-for list="{{methods}}" as="m" hint-placeholder-count="3">
+<button role="radio" aria-checked="{{m.on}}" sc-camel-on-click="{{m.pick}}" style="{{m.style}}">{{m.label}}</button>
+</sc-for>
+</div>
+</section>
+</div>
+
+<div style="padding:12px 16px 20px;background:#FFFFFF;border-top:1px solid #DDE5E2">
+<button style="width:100%;min-height:56px;border-radius:14px;border:0;background:#EA580C;color:#1C0A02;font:600 16px Inter,sans-serif;cursor:pointer">{{payLabel}}</button>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { waiter: false, bill: false, method: 'upi' };
+  }
+  renderVals() {
+    const inr = (n) => '₹' + n.toLocaleString('en-IN');
+    const chip = (bg, fg) => 'font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;background:' + bg + ';color:' + fg + ';';
+    const ST = [
+      { label: 'Accepted', c: chip('#E6EFFB', '#123F7A') },
+      { label: 'Preparing', c: chip('#FCEBDD', '#8A3B06') },
+      { label: 'Ready', c: chip('#DDF0E8', '#0F4F36') },
+      { label: 'Served', c: chip('#E6EDEA', '#33423D') }
+    ];
+    const rows = [
+      { qty: 2, name: 'Paneer tikka', price: 280, step: 3 },
+      { qty: 1, name: 'Hyderabadi biryani', price: 380, step: 1 },
+      { qty: 2, name: 'Butter naan', price: 70, step: 0 },
+      { qty: 3, name: 'Masala chai', price: 60, step: 2 }
+    ];
+    let sub = 0;
+    rows.forEach((r) => { sub += r.qty * r.price; });
+    const tax = Math.round(sub * 0.05);
+    const total = sub + tax;
+    const seg = (on) => 'flex:1 1 0;height:6px;border-radius:3px;background:' + (on ? '#145049' : '#DDE5E2') + ';';
+    const act = 'min-height:52px;border-radius:12px;font:600 14px Inter,sans-serif;cursor:pointer;';
+    const actOff = act + 'border:1px solid #145049;background:#FFFFFF;color:#145049;';
+    const actOn = act + 'border:1px solid #145049;background:#145049;color:#FFFFFF;';
+    const mb = 'min-height:52px;border-radius:12px;font:600 14px Inter,sans-serif;cursor:pointer;';
+    const mOn = mb + 'border:2px solid #145049;background:#E3F1EE;color:#0E3A34;';
+    const mOff = mb + 'border:1px solid #BFD0CA;background:#FFFFFF;color:#14211F;';
+    const methods = [
+      { id: 'upi', label: 'UPI' },
+      { id: 'card', label: 'Card' },
+      { id: 'cash', label: 'Cash' }
+    ];
+    const payText = { upi: 'Pay ' + inr(total) + ' with UPI', card: 'Pay ' + inr(total) + ' by card', cash: 'I will pay ' + inr(total) + ' in cash' };
+    return {
+      items: rows.map((r) => ({
+        qty: r.qty,
+        name: r.name,
+        status: ST[r.step].label,
+        chip: ST[r.step].c,
+        steps: [0, 1, 2, 3].map((n) => seg(n <= r.step))
+      })),
+      waiterLabel: this.state.waiter ? 'Waiter notified' : 'Call waiter',
+      waiterStyle: this.state.waiter ? actOn : actOff,
+      billLabel: this.state.bill ? 'Bill requested' : 'Request bill',
+      billStyle: this.state.bill ? actOn : actOff,
+      toggleWaiter: () => this.setState({ waiter: !this.state.waiter }),
+      toggleBill: () => this.setState({ bill: !this.state.bill }),
+      subtotal: inr(sub),
+      tax: inr(tax),
+      total: inr(total),
+      methods: methods.map((m) => ({ label: m.label, on: this.state.method === m.id, style: this.state.method === m.id ? mOn : mOff, pick: () => this.setState({ method: m.id }) })),
+      payLabel: payText[this.state.method]
+    };
+  }
+}
+</script>
+
+
+</body></html>

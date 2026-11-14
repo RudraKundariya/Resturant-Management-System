@@ -1,0 +1,69 @@
+
+<helmet>
+<style>/* cyrillic-ext */
+/* cyrillic */
+/* greek-ext */
+/* greek */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+/* cyrillic-ext */
+/* cyrillic */
+/* greek-ext */
+/* greek */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+/* cyrillic-ext */
+/* cyrillic */
+/* greek-ext */
+/* greek */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+</style>
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;display:flex;flex-direction:column;background:#F4F6F5;font-family:Inter,system-ui,sans-serif;color:#14211F;overflow:hidden">
+
+<header style="background:#145049;color:#FFFFFF;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:4px solid #EA580C">
+<div style="display:flex;flex-direction:column">
+<span style="font-family:'Space Grotesk',Inter,sans-serif;font-weight:600;font-size:22px">My tasks</span>
+<span style="font-size:13px;color:#CDEBE5">Ravi · Cleaning</span>
+</div>
+<a href="Main.dc.html" style="min-height:44px;padding:0 14px;border-radius:10px;border:1px solid #4E8A80;font-size:13px;font-weight:600;display:flex;align-items:center">Floor map</a>
+</header>
+
+<div role="tablist" aria-label="Task type" style="display:flex;gap:8px;padding:12px 16px">
+<button role="tab" aria-selected="true" style="flex:1 1 0;min-height:44px;border-radius:999px;border:1px solid #145049;background:#145049;color:#FFFFFF;font:600 14px Inter,sans-serif">Cleaning · {{count}}</button>
+<button role="tab" aria-selected="false" style="flex:1 1 0;min-height:44px;border-radius:999px;border:1px solid #BFD0CA;background:#FFFFFF;color:#14211F;font:600 14px Inter,sans-serif">Service · 2</button>
+</div>
+
+<section aria-label="Cleaning tasks" style="flex:1 1 auto;overflow-y:auto;padding:0 16px 16px;display:flex;flex-direction:column;gap:12px">
+<sc-if value="{{allDone}}" hint-placeholder-val="{{ false }}">
+<div style="margin:auto;text-align:center;display:flex;flex-direction:column;gap:6px;padding:24px">
+<span style="font-family:'Space Grotesk',Inter,sans-serif;font-size:20px;font-weight:600">All tables are clean</span>
+<span style="font-size:14px;color:#55655F">New tasks appear here when a guest pays.</span>
+</div>
+</sc-if>
+<sc-for list="{{tasks}}" as="t" hint-placeholder-count="3">
+<article style="{{t.card}}">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<span style="font-family:'Space Grotesk',Inter,sans-serif;font-size:22px;font-weight:600">{{t.name}}</span>
+<span style="{{t.chip}}">{{t.priority}}</span>
+</div>
+<span style="font-size:14px;color:#33423D">{{t.detail}}</span>
+<button sc-camel-on-click="{{t.done}}" style="min-height:52px;border-radius:12px;border:0;background:#145049;color:#FFFFFF;font:600 15px Inter,sans-serif;cursor:pointer">Done, table is clean</button>
+</article>
+</sc-for>
+</section>
+</div>
