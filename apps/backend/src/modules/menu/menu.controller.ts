@@ -18,3 +18,4 @@ export class MenuController {
     return this.menuService.toggleAvailability(id, isAvailable);
   }
 }
+
